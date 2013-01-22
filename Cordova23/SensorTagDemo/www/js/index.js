@@ -34,6 +34,7 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        Bluetooth.scan("test",scanSuc,scanFaild);
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -47,3 +48,10 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+function scanSuc(result) {
+    console.log('scanSuc');
+}
+function scanFaild() {
+    console.log('scanFaild');
+}
